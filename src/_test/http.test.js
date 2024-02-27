@@ -2,7 +2,11 @@ import { createServer } from '../http.js';
 import { buildImagePayload } from './utils.js';
 
 describe('http test', () => {
-  const server = createServer();
+  let server = null;
+
+  beforeAll(async () => {
+    server = await createServer();
+  });
 
   describe('POST /predict', () => {
     it('should predict "Gogo" when given by Gogo images', async () => {
