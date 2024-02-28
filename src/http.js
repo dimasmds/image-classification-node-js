@@ -12,7 +12,7 @@ async function createServer() {
   server.route({
     method: 'POST',
     path: '/predict',
-    handler: async (request, h) => {
+    handler: async (request) => {
       const { image } = request.payload;
 
       // @TODO - predict the image
