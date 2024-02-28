@@ -1,6 +1,9 @@
 import Hapi from '@hapi/hapi';
+import { loadModel, predict, transformImage } from './ml.js';
 
 async function createServer() {
+  const model = await loadModel();
+
   const server = Hapi.server({
     host: '0.0.0.0',
     port: 8080,
@@ -12,12 +15,11 @@ async function createServer() {
   server.route({
     method: 'POST',
     path: '/predict',
-    handler: async (request, h) => {
+    handler: async (request) => {
       const { image } = request.payload;
-
-      // @TODO - predict the image
-
-      return {};
+      const processedImage = transformImage(image);
+      const result = await predict(model, processedImage);
+      return { result };
     },
     options: {
       payload: {
