@@ -42,7 +42,7 @@ describe('http test', () => {
       // Assert
       const body = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(200);
-      expect(body.result).toEqual('lili');
+      expect(body.result).toEqual('Lili');
     });
 
     it('should predict "Apikat" when given by Apikat images', async () => {
