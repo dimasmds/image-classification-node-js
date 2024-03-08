@@ -45,9 +45,9 @@ describe('http test', () => {
       expect(body.result).toEqual('Lili');
     });
 
-    it('should predict "Apikat" when given by Apikat images', async () => {
+    it('should predict "Mirkat" when given by Mirkat images', async () => {
       // Assert
-      const { payload, headers } = await buildImagePayload('apikat.jpg');
+      const { payload, headers } = await buildImagePayload('mirkat.jpg');
 
       // Action
       const response = await server.inject({
@@ -60,7 +60,7 @@ describe('http test', () => {
       // Assert
       const body = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(200);
-      expect(body.result).toEqual('Apikat');
+      expect(body.result).toEqual('Mirkat');
     });
   });
 });
