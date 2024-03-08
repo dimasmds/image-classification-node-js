@@ -1,4 +1,6 @@
-function indexOfMaxNumber(numbers) {
+function indexOfMaxNumber(array) {
+  const numbers = Array.from(array);
+
   if (!Array.isArray(numbers) || numbers.length === 0) {
     return -1;
   }
